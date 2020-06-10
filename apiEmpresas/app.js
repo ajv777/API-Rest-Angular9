@@ -18,10 +18,10 @@ require('./db').connect();
 
 // Query de prueba para ver si va. Levanto la aplicación con npm run startdev y en el console.log me tienen que salir los clientes de la bd BORRAR, QUE VA BIEN
 
-db.query('select * from empleados', (err, rows) => {
+/* db.query('select * from empleados', (err, rows) => {
   if (err) console.log (err);
   console.log (rows);
-});
+}); */
 
 
 // view engine setup
