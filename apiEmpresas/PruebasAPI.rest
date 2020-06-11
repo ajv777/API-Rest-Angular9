@@ -1,7 +1,61 @@
+### All departamentos
 GET http://localhost:3000/api/departamentos
 
-###
+### All empleados
 GET http://localhost:3000/api/empleados
 
-### 
+### Create new departamento - VA BIEN
 POST http://localhost:3000/api/departamentos
+Content-Type: application/json 
+
+{
+    "nombre":"UX",
+    "ciudad":"Madrid"
+}
+
+### Create new empleado - NO VA
+POST http://localhost:3000/api/empleados
+Content-Type: application/json 
+
+{
+    "nombre":"Marina",
+    "dni":"67291149",
+    "sexo":"F",
+    "fecha_nacimiento":"1976-07-11T23:00:00.000Z",
+    "fecha_incorporacion":"2020-05-21T13:22:02.000Z",
+    "salario":2300,
+    "cargo":"Jefa de UX",
+    "fk_departamento":5,
+    "jefe_id":2,
+}
+
+### Delete departament OK
+DELETE http://localhost:3000/api/departamentos/7
+
+### Delete empleado OK
+DELETE http://localhost:3000/api/empleados/10
+
+### Update departament OK
+PUT http://localhost:3000/api/departamentos/9
+Content-Type: application/json
+
+{
+    "nombre":"UX",
+    "ciudad":"Valencia"
+}
+
+### Update empleado - NO VA
+PUT http://localhost:3000/api/empleado/1
+Content-Type: application/json 
+
+{
+    "nombre":"Marina",
+    "dni":"67291149",
+    "sexo":"F",
+    "fecha_nacimiento":"1976-07-11T23:00:00.000Z",
+    "fecha_incorporacion":"2020-05-21T13:22:02.000Z",
+    "salario":2300,
+    "cargo":"Jefa de UX",
+    "fk_departamento":5,
+    "jefe_id":2,
+}
