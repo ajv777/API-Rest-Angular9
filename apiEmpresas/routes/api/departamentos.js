@@ -7,7 +7,6 @@ const Departamento = require('../../models/departamentos');
     Departamento.getAll()
     .then((rows) => {
         res.json(rows);
-        // Sustituir por res.render ('clientes/index', {departamento:rows});
     })
     .catch(err => {
         res.json({error: err.message});
@@ -17,7 +16,7 @@ const Departamento = require('../../models/departamentos');
  //POST http://localhost:3000/api/departamentos/ Crea un nuevo departamento en la base de datos
 
  router.post('/', async (req, res) => {
-    const result = await Departamento.addDepartment(req.body);
+    const result = await Departamento.create(req.body);
     if (result['affectedRows'] === 1) {
         res.json({ success: 'Departamento agregado' });
     } else {

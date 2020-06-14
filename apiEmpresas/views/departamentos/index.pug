@@ -1,0 +1,18 @@
+extends ../layout
+block content
+    h2.m-1 Lista de Departamentos
+    table.table
+        thead
+            tr
+                th Nombre
+                th Ciudad
+                th Acciones
+        tbody
+            each departamento in departamentos
+                tr
+                    td= departamento.nombre
+                    td= departamento.ciudad
+                    td
+                        a.btn.btn-primary.btn-sm.mr-2(href="departamentos/edit/"+departamento.id) Editar
+                        a.btn.btn-danger.btn-sm.mr-2(href="departamentos/delete/"+departamento.id) Borrar
+    a.btn.btn-info(href="/departamentos/new") Agregar nuevo departamento

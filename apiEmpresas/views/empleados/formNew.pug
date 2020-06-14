@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+    h2.mt-1 Agrega un nuevo Empleado
+    form(action="/empleados/create", method="POST")
+        .form-group
+            label Nombre
+            input.form-control(type="text", name="nombre")
+        .form-group
+            label DNI
+            input.form-control(type="text", name="dni")
+        .form-group
+            label Sexo
+            select.form-control(name="sexo")
+                option(value="F") Femenino
+                option(value="M") Masculino
+        .form-group
+            label Fecha de nacimiento
+            input.form-control(type="text", name="fecha_nacimiento")
+        .form-group
+            label Salario
+            input.form-control(type="number", name="salario")
+        .form-group
+            label Cargo
+            input.form-control(type="text", name="cargo")
+        .form-group
+            label Jefe
+            input.form-control(type="number", name="jefe_id")
+        .form-group
+            label Departamento
+            input.form-control(type="text", name="fk_departamento")
+        input.btn.btn-info.btn-block(type="submit", value="Enviar")

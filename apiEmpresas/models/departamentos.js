@@ -7,7 +7,7 @@ const getAll = () => {
     });
 };
 
-const addDepartment = ({nombre, ciudad}) => {
+const create = ({nombre, ciudad}) => {
     return new Promise ((resolve, reject) => {
         db.query ('insert into departamento (nombre, ciudad) values (?,?)',
         [nombre, ciudad],
@@ -17,6 +17,16 @@ const addDepartment = ({nombre, ciudad}) => {
         });
     });
 };
+
+const getById = (pDepartamentoId) => {
+    return new Promise((resolve, reject) => {
+      db.query('select * from departamento where id = ?', [pDepartamentoId], (err, rows) => {
+        if (err) reject(err);
+        if (rows.length !== 1) reject('El id_departamento no existe');
+        resolve(rows[0]);
+      })
+    })
+  }
 
 const deleteById = (pDepartamentoId) => {
     return new Promise ((resolve, reject) => {
@@ -40,5 +50,5 @@ const updateById = (pDepartamentoId, { nombre, ciudad }) => {
 }
 
 module.exports = {
-    getAll, addDepartment, deleteById, updateById
+    getAll, create, getById, deleteById, updateById
 }

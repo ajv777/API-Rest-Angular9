@@ -1,0 +1,15 @@
+extends ../layout 
+
+block content
+    h2.m-3 Edita el departamento
+    form.m-3(action="/departamentos/update", method="POST")
+        .form-group 
+            label Nombre
+            input.form-control(type="text", name="nombre", value=departamento.nombre)
+        .form-group 
+            label Ciudad
+            input.form-control(type="text", name="ciudad", value=departamento.ciudad)
+
+            //- Id hidden
+        input(type="hidden", name="idDepartamento", value=departamento.id)
+        input.btn.btn-info.btn-block(type="submit", value="Enviar")
